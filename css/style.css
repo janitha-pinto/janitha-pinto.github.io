@@ -271,6 +271,10 @@ h3 { font-size: 1.3rem; }
   align-items: center;
 }
 
+.hero .container > * {
+  min-width: 0;
+}
+
 .hero h1 {
   color: var(--color-white);
 }
@@ -423,6 +427,10 @@ h3 { font-size: 1.3rem; }
 .grid--4 { grid-template-columns: repeat(4, 1fr); }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
 
+.grid > * {
+  min-width: 0;
+}
+
 .card {
   background: var(--color-white);
   border-radius: var(--radius);
@@ -472,6 +480,10 @@ h3 { font-size: 1.3rem; }
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
+}
+
+.split > * {
+  min-width: 0;
 }
 
 .split ul {
@@ -844,6 +856,10 @@ h3 { font-size: 1.3rem; }
   gap: 50px;
 }
 
+.contact-layout > * {
+  min-width: 0;
+}
+
 .contact-info__item {
   display: flex;
   gap: 16px;
@@ -1035,6 +1051,7 @@ h3 { font-size: 1.3rem; }
 @media (max-width: 900px) {
   .hero .container { grid-template-columns: 1fr; }
   .hero__media { order: -1; }
+  .hero__media .placeholder { min-height: 0; }
   .split { grid-template-columns: 1fr; }
   .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
