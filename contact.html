@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Ceylon Spice Catering</title>
+<meta name="description" content="Get in touch with Ceylon Spice Catering for your next event in Melbourne. Request a quote for weddings, corporate catering and private parties.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌶️</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand__mark">🌶️</span>
+      <span>Ceylon Spice Catering<span class="brand__tagline">Melbourne</span></span>
+    </a>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="events.html">Events &amp; Catering</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+      <li class="nav__cta"><a href="contact.html" class="btn btn--primary">Get a Quote</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">Home / Contact</div>
+      <h1>Get In Touch</h1>
+      <p>Tell us about your event and we'll get back to you with a tailored quote within 48 hours.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-layout">
+
+      <div>
+        <span class="eyebrow">Contact Details</span>
+        <h2>We'd love to hear from you</h2>
+
+        <div style="margin-top: 30px;">
+          <div class="contact-info__item">
+            <div class="contact-info__icon">📍</div>
+            <div>
+              <strong>Address</strong>
+              <p>123 Example Street, Melbourne VIC 3000 (placeholder — servicing all of Melbourne metro)</p>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__icon">📞</div>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+61400000000">+61 400 000 000</a>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:hello@example.com">hello@example.com</a>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__icon">🕒</div>
+            <div>
+              <strong>Hours</strong>
+              <p>Mon–Fri: 9am – 6pm &nbsp;|&nbsp; Sat–Sun: By appointment &nbsp;|&nbsp; Event service: 7 days</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 10px;">Follow Us</h3>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="WhatsApp">WA</a>
+        </div>
+
+        <div class="map-wrap">
+          <div class="placeholder placeholder--4-3" data-icon="🗺️">
+            <div class="placeholder__label">
+              <strong>Add map</strong>
+              <span>Embed a Google Maps iframe here with your business location</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="form" data-mailto="hello@example.com">
+          <div class="form-success" tabindex="-1">Thanks! Your email app should now be open with your enquiry pre-filled — hit send to reach us.</div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="eventType">Event Type</label>
+              <select id="eventType" name="eventType">
+                <option value="Wedding">Wedding</option>
+                <option value="Corporate Event">Corporate Event</option>
+                <option value="Private Party">Private Party</option>
+                <option value="Festival / Community Event">Festival / Community Event</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="guestCount">Estimated Guests</label>
+              <input type="number" id="guestCount" name="guestCount" min="1" placeholder="e.g. 50">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="eventDate">Event Date</label>
+              <input type="date" id="eventDate" name="eventDate">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Optional">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Tell us about your event *</label>
+            <textarea id="message" name="message" required placeholder="Location, dietary needs, budget, service style..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary" style="width: 100%;">Send Enquiry</button>
+          <p class="form-note">This form opens your email client with the details pre-filled (GitHub Pages has no backend). To collect submissions directly, connect a service like Formspree or Netlify Forms.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span>🌶️</span> Ceylon Spice Catering</div>
+        <p>Authentic Sri Lankan catering for weddings, corporate events and private parties across Melbourne.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="menu.html">Menu</a></p>
+        <p><a href="events.html">Events &amp; Catering</a></p>
+        <p><a href="gallery.html">Gallery</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="tel:+61400000000">+61 400 000 000</a></p>
+        <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+        <p>Melbourne, VIC, Australia</p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>Mon–Fri: 9am – 6pm</p>
+        <p>Sat–Sun: By appointment</p>
+        <p>Event service: 7 days</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> Ceylon Spice Catering. All rights reserved.</span>
+      <span>Placeholder content — replace with your own business details.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
