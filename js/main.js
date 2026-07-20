@@ -76,15 +76,19 @@ function initMobileNav() {
   var links = document.querySelector('.nav__links');
   if (!toggle || !links) return;
 
-  toggle.addEventListener('click', function () {
-    var isOpen = links.classList.toggle('is-open');
+  function setOpen(isOpen) {
+    links.classList.toggle('is-open', isOpen);
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('nav-open', isOpen);
+  }
+
+  toggle.addEventListener('click', function () {
+    setOpen(!links.classList.contains('is-open'));
   });
 
   links.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () {
-      links.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
+      setOpen(false);
     });
   });
 }
