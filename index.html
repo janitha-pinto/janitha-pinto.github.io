@@ -6,6 +6,11 @@
 <title>Ceylon Spice Catering | Authentic Sri Lankan Catering in Melbourne</title>
 <meta name="description" content="Ceylon Spice Catering brings authentic Sri Lankan flavours to weddings, corporate events and private parties across Melbourne. Book your event today.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌶️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -37,37 +42,38 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
-      <div class="hero__copy">
-        <span class="eyebrow" style="color: var(--color-saffron-light);">Sri Lankan Catering, Melbourne-wide</span>
-        <h1>Authentic flavours of <span class="hero__accent">Sri Lanka</span>, catered for your event</h1>
-        <p class="lead">From backyard birthdays to 300-guest weddings, Ceylon Spice Catering brings slow-cooked curries, fresh hoppers and bold sambols straight from a Sri Lankan kitchen to your table.</p>
-        <div class="hero__actions">
-          <a href="contact.html" class="btn btn--gold">Request a Quote</a>
-          <a href="menu.html" class="btn btn--outline">View Our Menu</a>
-        </div>
-        <div class="hero__stats">
-          <div class="hero__stat">
-            <strong>10+ yrs</strong>
-            <span>Family recipes</span>
-          </div>
-          <div class="hero__stat">
-            <strong>500+</strong>
-            <span>Events catered</span>
-          </div>
-          <div class="hero__stat">
-            <strong>100%</strong>
-            <span>Halal-friendly options</span>
-          </div>
-        </div>
+    <div class="hero__bg placeholder" data-icon="📷">
+      <div class="placeholder__label">
+        <strong>Add photo</strong>
+        <span>Full-bleed hero background — rice &amp; curry banquet or event tablescape, 1920×1080px</span>
       </div>
-      <div class="hero__media">
-        <div class="placeholder placeholder--4-3" data-icon="📷">
-          <div class="placeholder__label">
-            <strong>Add photo</strong>
-            <span>Hero shot — spread of rice &amp; curry banquet, 1200×900px</span>
-          </div>
-        </div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="container hero__inner">
+      <span class="eyebrow eyebrow--light">Sri Lankan Catering, Melbourne-wide</span>
+      <h1>Authentic flavours of <span class="hero__accent">Sri Lanka</span>, catered for your event</h1>
+      <p class="lead">From backyard birthdays to 300-guest weddings, Ceylon Spice Catering brings slow-cooked curries, fresh hoppers and bold sambols straight from a Sri Lankan kitchen to your table.</p>
+      <div class="hero__actions">
+        <a href="contact.html" class="btn btn--gold">Request a Quote</a>
+        <a href="menu.html" class="btn btn--outline">View Our Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stat bar -->
+  <section class="stat-bar">
+    <div class="container stat-bar__inner">
+      <div class="hero__stat">
+        <strong>10+ yrs</strong>
+        <span>Family recipes</span>
+      </div>
+      <div class="hero__stat">
+        <strong>500+</strong>
+        <span>Events catered</span>
+      </div>
+      <div class="hero__stat">
+        <strong>100%</strong>
+        <span>Halal-friendly options</span>
       </div>
     </div>
   </section>
@@ -233,7 +239,7 @@
       <div class="cta-banner">
         <h2>Ready to plan your event menu?</h2>
         <p>Tell us your guest count, budget and dietary needs — we'll put together a custom quote within 48 hours.</p>
-        <a href="contact.html" class="btn" style="background: var(--color-brown); color: var(--color-white);">Request a Quote</a>
+        <a href="contact.html" class="btn btn--gold">Request a Quote</a>
       </div>
     </div>
   </section>

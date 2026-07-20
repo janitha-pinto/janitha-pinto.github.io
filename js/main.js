@@ -1,12 +1,68 @@
 // Ceylon Spice Catering — shared site behaviour
 
 document.addEventListener('DOMContentLoaded', function () {
+  initPageTransitions();
+  initHeaderScroll();
   initMobileNav();
   initGalleryFilter();
   initLightbox();
   initContactForm();
+  initScrollReveal();
   setFooterYear();
 });
+
+function initPageTransitions() {
+  var FADE_MS = 220;
+
+  // Force the browser to paint the hidden (opacity:0) state at least once
+  // before flipping to visible — otherwise a slow-loading resource (e.g. the
+  // Google Fonts stylesheet) can let the whole fade elapse before first
+  // paint, so the page would just appear "instantly" already fully faded in.
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      document.body.classList.add('page-ready');
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+    var link = e.target.closest('a');
+    if (!link || !link.href) return;
+
+    var href = link.getAttribute('href') || '';
+    if (!href || href.charAt(0) === '#') return;
+    if (link.target && link.target !== '_self') return;
+    if (link.origin !== window.location.origin) return;
+    if (/^(mailto|tel):/.test(href)) return;
+
+    e.preventDefault();
+    document.body.classList.remove('page-ready');
+    document.body.classList.add('page-leaving');
+    setTimeout(function () {
+      window.location.href = link.href;
+    }, FADE_MS);
+  });
+
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) {
+      document.body.classList.remove('page-leaving');
+      document.body.classList.add('page-ready');
+    }
+  });
+}
+
+function initHeaderScroll() {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+
+  function update() {
+    header.classList.toggle('is-scrolled', window.scrollY > 40);
+  }
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
 
 function initMobileNav() {
   var toggle = document.querySelector('.nav__toggle');
@@ -24,6 +80,38 @@ function initMobileNav() {
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
+}
+
+function initScrollReveal() {
+  var selector = '.card, .testimonial, .package-card, .step, .gallery-item, ' +
+    '.section-head, .split > *, .cta-banner, .menu-category__head, ' +
+    '.contact-info__item, .form';
+  var items = Array.prototype.slice.call(document.querySelectorAll(selector));
+  if (!items.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('reveal--visible'); });
+    return;
+  }
+
+  var siblingIndex = new Map();
+  items.forEach(function (el) {
+    el.classList.add('reveal');
+    var count = siblingIndex.get(el.parentElement) || 0;
+    siblingIndex.set(el.parentElement, count + 1);
+    el.style.transitionDelay = Math.min(count * 70, 280) + 'ms';
+  });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal--visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  items.forEach(function (el) { observer.observe(el); });
 }
 
 function initGalleryFilter() {
