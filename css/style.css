@@ -79,27 +79,59 @@ ul {
   padding: 0 24px;
 }
 
-/* ---------- Page transitions (JS-controlled fade) ---------- */
+/* ---------- Page transitions ---------- */
+/* Primary: native cross-document view transition. The browser keeps the
+   current page on screen, loads the destination in the background, and only
+   then cross-fades — this is the only way to truly avoid a blank gap between
+   pages, since a plain multi-page navigation has no "next page" to show
+   until it has actually loaded. Chrome/Edge only; unsupported browsers just
+   ignore this rule and navigate normally. */
 
-body {
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-header {
+  view-transition-name: site-header;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Fallback: JS-driven fade for browsers without native support (Safari,
+   Firefox). Only engaged when main.js detects no native support; see
+   initPageTransitions(). Still has a brief blank gap while the next page
+   loads — that part can't be avoided without native support. */
+
+body.fade-transitions {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-body.page-ready {
+body.fade-transitions.page-ready {
   opacity: 1;
   transform: translateY(0);
 }
 
-body.page-leaving {
+body.fade-transitions.page-leaving {
   opacity: 0;
   transform: translateY(0);
   transition: opacity 0.22s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body {
+  body.fade-transitions {
     opacity: 1;
     transform: none;
     transition: none;

@@ -12,7 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function initPageTransitions() {
+  // Chrome/Edge handle page-to-page transitions natively (see the
+  // @view-transition CSS rule) — the browser keeps the current page visible
+  // until the next one has actually loaded, then cross-fades, with no blank
+  // gap. Only run the manual fallback below where that isn't available.
+  if ('startViewTransition' in document) return;
+
   var FADE_MS = 220;
+  document.body.classList.add('fade-transitions');
 
   // Force the browser to paint the hidden (opacity:0) state at least once
   // before flipping to visible — otherwise a slow-loading resource (e.g. the
